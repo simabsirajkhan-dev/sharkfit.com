@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90 Day Fitness Transformation</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: white;
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  color: #ff3c3c;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 30px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff3c3c, #ff7a18);
+  padding: 15px 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* SECTION */
+.section {
+  padding: 70px 0;
+  text-align: center;
+}
+
+/* GLASS CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* BEFORE AFTER */
+.before-after {
+  display: flex;
+  gap: 20px;
+}
+
+.before-after img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* TRAINER */
+.trainer img {
+  width: 180px;
+  border-radius: 50%;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1;}
+}
+
+/* FOOTER */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #111;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero container">
+  <h1>Transform Your Body in 90 Days 💪</h1>
+  <p>Lose fat. Build muscle. Gain confidence.</p>
+
+  <a href="#payment" class="btn">Join Now</a>
+
+  <!-- IMAGE: Use transformation or fitness model -->
+  <img src="images/hero.jpg" alt="Fitness Transformation">
+</section>
+
+<!-- BEFORE AFTER -->
+<section class="section container">
+  <h2>Real Results</h2>
+  <div class="before-after">
+    <!-- IMAGE: before body -->
+    <img src="images/before.jpg">
+    <!-- IMAGE: after body -->
+    <img src="images/after.jpg">
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section container">
+  <h2>What You Get</h2>
+  <div class="grid">
+    <div class="card">🔥 Fat Loss Plan</div>
+    <div class="card">💪 Muscle Building</div>
+    <div class="card">🥗 Diet Plan</div>
+    <div class="card">📲 1:1 Support</div>
+  </div>
+</section>
+
+<!-- TRAINER -->
+<section class="section container trainer">
+  <h2>Your Coach</h2>
+  <img src="images/trainer.jpg">
+  <p>Certified trainer with 10+ years experience</p>
+</section>
+
+<!-- PAYMENT -->
+<section class="section container" id="payment">
+  <h2>Join Today</h2>
+  <p>Limited seats available</p>
+
+  <button class="btn" onclick="payNow()">Pay ₹999</button>
+</section>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/918755577938" target="_blank"
+style="position:fixed; bottom:20px; right:20px; background:#25D366;
+color:white; padding:15px; border-radius:50%; font-size:20px;">
+💬
+</a>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 Fitness Program</p>
+</div>
+
+<!-- RAZORPAY -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+function payNow() {
+  var options = {
+    "key": "YOUR_RAZORPAY_KEY",
+    "amount": 99900,
+    "currency": "INR",
+    "name": "Fitness Program",
+    "description": "90 Day Transformation",
+    "handler": function (response){
+        alert("Payment Successful!");
+    }
+  };
+  var rzp = new Razorpay(options);
+  rzp.open();
+}
+</script>
+
+</body>
+</html>
